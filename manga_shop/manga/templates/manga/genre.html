@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ genre }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">{{ genre }}</h1>
+        <ul class="list-group mt-3">
+            {% for manga in mangas %}
+                <li class="list-group-item">{{ manga.title }} - {{ manga.author }} - ${{ manga.price }}</li>
+            {% empty %}
+                <li class="list-group-item">No manga found for this genre.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

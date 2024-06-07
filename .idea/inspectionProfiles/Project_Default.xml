@@ -1,0 +1,33 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyInterpreterInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="psycopg2-binary" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="main.value_1" />
+          <option value="django.views.views" />
+          <option value="app.models.Book.objects" />
+          <option value="app.models.Person.objects" />
+          <option value="app.models.Items.objects" />
+          <option value="app.models.GuideGame.objects" />
+          <option value="dz11.app11.views.app11" />
+          <option value="lesson12.client_side.views.client_side" />
+          <option value="lesson12.shop_side.views.shop_side" />
+          <option value="lesson12.client_side.views.shop_side" />
+          <option value="app.models.Cars.objects" />
+          <option value="snippets.models.Snippet.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Shopping Cart</h2>
+    {% if cart_items %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td><img src="{{ item.manga.image.url }}" alt="{{ item.manga.title }}" style="height: 100px;"></td>
+                        <td>{{ item.manga.title }}</td>
+                        <td>${{ item.manga.price }}</td>
+                        <td>
+                            <form method="post" action="{% url 'update_cart' %}">
+                              {% csrf_token %}
+                              <input type="hidden" name="manga_id" value="{{ item.manga.id }}">
+                              <button class="btn btn-danger btn-sm" type="submit" name="action" value="decrement"><i class="fas fa-minus"></i>-</button>
+                              <span>{{ item.quantity }}</span>
+                                <button class="btn btn-success btn-sm mr-2" type="submit" name="action" value="increment"><i class="fas fa-plus"></i>+</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between align-items-center">
+            <h4>Total: ${{ total_price }}</h4>
+            <form action="{% url 'purchase_success' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Buy Now</button>
+            </form>
+        </div>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+    <a href="{% url 'manga' %}" class="btn btn-secondary mt-3">Continue Shopping</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

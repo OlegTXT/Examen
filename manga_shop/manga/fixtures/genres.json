@@ -1,0 +1,16 @@
+[
+    {
+        "model": "manga.genre",
+        "pk": 1,
+        "fields": {
+            "name": "Action"
+        }
+    },
+    {
+        "model": "manga.genre",
+        "pk": 2,
+        "fields": {
+            "name": "Fantasy"
+        }
+    }
+]
