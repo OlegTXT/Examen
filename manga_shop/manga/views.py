@@ -180,7 +180,7 @@ def manga(request):
     mangas = Manga.objects.all()
     if genre_id:
         mangas = mangas.filter(genre_id=genre_id)
-    paginator = Paginator(mangas, 3)
+    paginator = Paginator(mangas, 1)
     page = request.GET.get('page')
     try:
         mangas = paginator.page(page)
@@ -200,9 +200,11 @@ def view_manga(request, manga_id):
 
 def add_manga(request):
     if request.method == 'POST':
-        form = MangaForm(request.POST)
+        form = MangaForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            manga = form.save(commit=False)
+            manga.author = request.user
+            manga.save()
             return redirect('manga')
     else:
         form = MangaForm()
@@ -236,3 +238,8 @@ def add_comment(request, manga_id):
     else:
         form = CommentForm()
     return render(request, 'manga/add_comment.html', {'form': form})
+
+
+def contact(request):
+    return render(request, 'manga/contact.html')
+

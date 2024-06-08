@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Manga</title>
+    <title>Contact Creator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .contact-container {
+            margin-top: 50px;
+        }
+        .contact-header {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,16 +29,22 @@
         </div>
     </div>
 </nav>
-    <div class="container">
-        <h1 class="mt-5">Update Manga</h1>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                {{ form.as_p }}
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a href="{% url 'manga' %}" class="btn btn-secondary">Cancel</a>
-        </form>
+
+<div class="container contact-container">
+    <h1 class="contact-header">Contact the Creator</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Creator Information</h5>
+            <p class="card-text"><strong>Name:</strong> Em Oleg</p>
+            <p class="card-text"><strong>Email:</strong> emoleg2008@gmail.com</p>
+            <p class="card-text"><strong>Phone:</strong> +998908298231</p>
+            <p class="card-text"><strong>Address:</strong> It Step</p>
+        </div>
     </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

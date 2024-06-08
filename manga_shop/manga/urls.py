@@ -22,6 +22,7 @@ urlpatterns = [
     path('remove_from_cart/<int:manga_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('purchase_success/', views.purchase_success, name='purchase_success'),
     path('update_cart/', views.update_cart, name='update_cart'),
+    path('contact/', views.contact, name='contact'),
 
     path('adventure/', views.adventure, name='adventure'),
     path('fantasy/', views.fantasy, name='fantasy'),
